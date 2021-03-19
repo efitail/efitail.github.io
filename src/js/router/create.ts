@@ -1,5 +1,5 @@
 import VueRouter from "vue-router";
-import LandingPageComponent from "../components/pages/landing.vue";
+import LandingPageComponent from "@vue/pages/landing.vue";
 
 const routes = [
     {path: "/", name: "index", redirect: "/landing"},

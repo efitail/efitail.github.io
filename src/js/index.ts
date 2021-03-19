@@ -2,13 +2,13 @@ import Vue from "vue";
 import Vuex from "vuex";
 import VueRouter from "vue-router";
 import VueLazyload from "vue-lazyload";
-import createStore from "./store/create";
-import createRouter from "./router/create";
-import IndexComponent from "./components/index.vue";
-import "../css/index.scss";
+import createStore from "@/js/store/create";
+import createRouter from "@/js/router/create";
+import IndexComponent from "@vue/index.vue";
+import loadingImage from "@/img/loading.gif";
+import noImageImage from "@/img/no-image.png";
 import "bootstrap";
-import loadingImage from "../img/loading.gif";
-import noImageImage from "../img/no-image.png";
+import "@/css/index.scss";
 
 class App {
 

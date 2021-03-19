@@ -8,7 +8,7 @@
 <script lang="ts">
     import Vue from "vue";
     import Component from "vue-class-component";
-    import loadingImage from "../../../img/loading.gif";
+    import loadingImage from "@/img/loading.gif";
 
     @Component
     export default class PreloaderComponent extends Vue {

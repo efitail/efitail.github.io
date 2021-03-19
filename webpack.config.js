@@ -2,6 +2,8 @@ const path = require("path");
 const webpack = require("webpack");
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
 
+const rootDir = path.resolve(__dirname, ".");
+
 module.exports = (env, argv) => {
     const isProd = argv.mode === "production";
     return {
@@ -59,7 +61,10 @@ module.exports = (env, argv) => {
         resolve: {
             extensions: [".ts", ".js", ".vue", ".json"],
             alias: {
-                "vue$": "vue/dist/vue.esm.js"
+                "vue$": "vue/dist/vue.esm.js",
+                "@": path.resolve(rootDir, "src"),
+                "@res": path.resolve(rootDir, "resources"),
+                "@vue": path.resolve(rootDir, "src/js/components")
             }
         },
         devServer: {

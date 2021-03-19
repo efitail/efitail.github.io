@@ -1,12 +1,11 @@
 import Vuex from "vuex";
-import {ApiResource} from "../classes/api-resource";
-import {ApiResourceLoader} from "../classes/api-resource-loader";
 import Vue from "vue";
+import {ApiResource} from "@/js/classes/api-resource";
+import {ApiResourceLoader} from "@/js/classes/api-resource-loader";
 
 export default function createStore() {
     return new Vuex.Store({
-        state: {
-        },
+        state: {},
         mutations: {
             ensureResourceIsLoaded(state: any, resource: ApiResource) {
                 if (state.hasOwnProperty(resource.key) && state[resource.key] !== null) {

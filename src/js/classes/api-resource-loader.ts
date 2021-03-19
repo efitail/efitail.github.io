@@ -1,5 +1,5 @@
 import axios from "axios";
-import {ApiResource} from "./api-resource";
+import {ApiResource} from "@/js/classes/api-resource";
 
 export class ApiResourceLoader {
 

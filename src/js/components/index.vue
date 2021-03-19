@@ -9,8 +9,8 @@
 <script lang="ts">
     import Vue from "vue";
     import Component from "vue-class-component";
-    import HeaderComponent from "./partials/header.vue";
-    import FooterComponent from "./partials/footer.vue";
+    import HeaderComponent from "@vue/partials/header.vue";
+    import FooterComponent from "@vue/partials/footer.vue";
 
     @Component({
         components: {

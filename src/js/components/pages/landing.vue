@@ -10,8 +10,8 @@
 <script lang="ts">
     import Vue from "vue";
     import Component from "vue-class-component";
-    import PreloaderComponent from "../partials/preloader.vue";
-    import {landingRes} from "../../store/resources";
+    import PreloaderComponent from "@vue/partials/preloader.vue";
+    import {landingRes} from "@/js/store/resources";
 
     @Component({
         components: {
