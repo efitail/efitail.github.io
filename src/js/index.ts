@@ -7,7 +7,6 @@ import createRouter from "@/js/router/create";
 import IndexComponent from "@vue/index.vue";
 import loadingImage from "@/img/loading.gif";
 import noImageImage from "@/img/no-image.png";
-import "bootstrap";
 import "@/css/index.scss";
 
 class App {
