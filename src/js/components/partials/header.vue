@@ -1,5 +1,4 @@
 <template>
-    <hr>
 </template>
 
 <script lang="ts">
