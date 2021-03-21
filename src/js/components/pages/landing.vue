@@ -3,8 +3,10 @@
         <div class="page-content header-clear-small">
             <c-block-top/>
             <c-block-services/>
+            <c-contact-form button-text="Получить бесплатную консультацию"/>
             <c-block-portfolio/>
             <c-block-contacts/>
+            <c-contact-form button-text="Оставить заявку, мы перезвоним"/>
             <c-block-address/>
         </div>
     </div>
@@ -13,6 +15,7 @@
 <script lang="ts">
     import Vue from "vue";
     import Component from "vue-class-component";
+    import ContactFormComponent from "@vue/pages/landing/partials/contact-form.vue";
     import BlockTopComponent from "@vue/pages/landing/block-top.vue";
     import BlockServicesComponent from "@vue/pages/landing/block-services.vue";
     import BlockPortfolioComponent from "@vue/pages/landing/block-portfolio.vue";
@@ -21,6 +24,7 @@
 
     @Component({
         components: {
+            cContactForm: ContactFormComponent,
             cBlockTop: BlockTopComponent,
             cBlockServices: BlockServicesComponent,
             cBlockPortfolio: BlockPortfolioComponent,
