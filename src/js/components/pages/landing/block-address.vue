@@ -4,7 +4,7 @@
             <div class="content">
                 <h4 class="pt-2">Студия красоты Цвет & Форма</h4>
                 <p>
-                    <i class="fa fa-map-marker color-red2-dark"></i>
+                    <i class="fa fa-map-marker color-red2-dark mr-1"></i>
                     СПб, ул. Большая Посадская, д. 18
                     <b></b>
                 </p>
