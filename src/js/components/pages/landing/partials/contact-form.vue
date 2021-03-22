@@ -33,7 +33,7 @@
                                            placeholder="">
                                 </div>
                                 <button type="button"
-                                        class="btn btn-full bg-green1-dark btn-m text-uppercase rounded-sm shadow-l mb-3 mt-4 font-900"
+                                        class="btn btn-full btn-block bg-green1-dark btn-m text-uppercase rounded-sm shadow-l mb-3 mt-4 font-900"
                                         :disabled="!isFullyFilled"
                                         :class="{ 'muted': !isFullyFilled }"
                                         @click="submit">

@@ -3,20 +3,11 @@
         <div class="card card-slider card-style">
             <div class="content mb-0">
                 <h4 class="mb-4">Мои работы</h4>
-                <div class="double-slider owl-carousel owl-no-dots">
-                    <div class="item">
-                        <div data-card-height="300" class="card bg-18 rounded-m shadow-l">
-                            <div class="card-overlay bg-gradient"></div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div data-card-height="300" class="card bg-28 rounded-m shadow-l">
-                            <div class="card-overlay bg-gradient"></div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div data-card-height="300" class="card bg-13 rounded-m shadow-l">
-                            <div class="card-overlay bg-gradient"></div>
+                <div class="single-slider slider-boxed owl-carousel owl-has-controls pb-4">
+                    <div class="item" v-for="image in images()">
+                        <div data-card-height="500" class="card rounded-m shadow-l"
+                             :style="{ 'background-image': 'url(resources/images/portfolio/' + image + ')' }">
+                            <div class="card-overlay"></div>
                         </div>
                     </div>
                 </div>
@@ -33,6 +24,21 @@
         components: {}
     })
     export default class BlockPortfolioComponent extends Vue {
+
+        images() {
+            return [
+                "1.jpg",
+                "2.jpg",
+                "3.jpg",
+                "4.jpg",
+                "5.jpg",
+                "6.jpg",
+                "7.jpg",
+                "8.jpg",
+                "9.jpg"
+            ];
+        }
+
     }
 </script>
 
