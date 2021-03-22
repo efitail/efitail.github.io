@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="card card-style">
-            <div class="content">
+            <div class="content mb-2">
                 <h4>Предоставляемые услуги</h4>
             </div>
             <div class="accordion" id="accordion-1">

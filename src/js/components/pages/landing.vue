@@ -8,6 +8,7 @@
             <c-block-contacts/>
             <c-contact-form button-text="Оставить заявку, мы перезвоним"/>
             <c-block-address/>
+            <c-block-terms/>
         </div>
     </div>
 </template>
@@ -21,6 +22,7 @@
     import BlockPortfolioComponent from "@vue/pages/landing/block-portfolio.vue";
     import BlockContactsComponent from "@vue/pages/landing/block-contacts.vue";
     import BlockAddressComponent from "@vue/pages/landing/block-address.vue";
+    import BlockTermsComponent from "@vue/pages/landing/block-terms.vue";
 
     @Component({
         components: {
@@ -30,6 +32,7 @@
             cBlockPortfolio: BlockPortfolioComponent,
             cBlockContacts: BlockContactsComponent,
             cBlockAddress: BlockAddressComponent,
+            cBlockTerms: BlockTermsComponent,
         }
     })
     export default class LandingPageComponent extends Vue {

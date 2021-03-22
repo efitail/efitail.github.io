@@ -11,43 +11,48 @@
                     </button>
                 </div>
             </template>
-            <template v-else>
-                <div class="card card-style mb-0" style="margin-left: 30px; margin-right: 30px;">
-                    <div class="content">
-                        <h2>Запись </h2>
-                        <p class="mb-5">
-                            This contains basic profile fields, easily editable, set to disable or pre-populate with
-                            useful
-                            information.
-                        </p>
-                        <div class="input-style input-style-2 has-icon input-required">
-                            <i class="input-icon fa fa-user"></i>
-                            <span class="color-highlight input-style-1-active">Name</span>
-                            <em>(required)</em>
-                            <input type="name" class="form-control" value="Jackson Doe">
+            <template v-if="isShowForm">
+                <div class="col-12">
+                    <template v-if="!isSent">
+                        <div class="card card-style mb-0">
+                            <div class="content">
+                                <h2>{{ buttonText }}</h2>
+                                <p class="mb-3">
+                                    Оставьте свои контактные данные и мы Вам перезвоним.
+                                </p>
+                                <div class="input-style input-style-2 has-icon input-required">
+                                    <i class="input-icon fa fa-user"></i>
+                                    <span class="color-highlight input-style-1-active">Имя</span>
+                                    <input type="text" class="form-control" v-model="userName"
+                                           placeholder="">
+                                </div>
+                                <div class="input-style input-style-2 has-icon input-required mt-4">
+                                    <i class="input-icon fa fa-phone"></i>
+                                    <span class="color-highlight input-style-1-active">Номер телефона</span>
+                                    <input type="tel" class="form-control" v-model="userPhone"
+                                           placeholder="">
+                                </div>
+                                <button type="button"
+                                        class="btn btn-full btn-block bg-green1-dark btn-m text-uppercase rounded-sm shadow-l mb-3 mt-4 font-900"
+                                        :disabled="!isFullyFilled"
+                                        :class="{ 'muted': !isFullyFilled }"
+                                        @click="submit">
+                                    <i class="fa fa-paper-plane fa-fw mr-2"></i>
+                                    Отправить
+                                </button>
+                            </div>
                         </div>
-                        <div class="input-style input-style-2 has-icon input-required mt-4">
-                            <i class="input-icon fa fa-at"></i>
-                            <span class="color-highlight input-style-1-active">Email Address</span>
-                            <em>(required)</em>
-                            <input type="email" class="form-control" value="jack.doe@domain.com">
+                    </template>
+                    <template v-if="isSent">
+                        <div class="card card-style mb-0" style="background-color: rgba(255,96,190,0.59)">
+                            <div class="content">
+                                <p class="text-center font-weight-bold font-18 color-black">
+                                    Спасибо за заявку!<br>
+                                    Пожалуйста, ожидайте звонка.
+                                </p>
+                            </div>
                         </div>
-                        <div class="input-style input-style-2 has-icon input-required mt-4">
-                            <i class="input-icon fa fa-map-marker"></i>
-                            <span class="color-highlight input-style-1-active">Location</span>
-                            <em>(required)</em>
-                            <input type="text" class="form-control" value="Melbourne, Australia">
-                        </div>
-                        <div class="input-style input-style-2 has-icon input-required mt-4">
-                            <i class="input-icon fa fa-phone"></i>
-                            <span class="color-highlight input-style-1-active">Phone Number</span>
-                            <em>(required)</em>
-                            <input type="phone" class="form-control" value="+1 234 5678 9134">
-                        </div>
-                        <a href="page-account.html#"
-                           class="btn btn-full bg-green1-dark btn-m text-uppercase rounded-sm shadow-l mb-3 mt-4 font-900">Save
-                            Basic Information</a>
-                    </div>
+                    </template>
                 </div>
             </template>
         </div>
@@ -58,6 +63,7 @@
     import Vue from "vue";
     import Component from "vue-class-component";
     import {Prop} from "vue-property-decorator";
+    import axios from "axios";
 
     @Component({
         components: {}
@@ -67,19 +73,52 @@
         @Prop()
         private buttonText!: string;
 
-        @Prop()
-        private isShowForm: boolean = false;
+        userName: string = "";
 
-        @Prop()
+        userPhone: string = "";
+
+        isShowForm: boolean = false;
+
+        isSent: boolean = false;
+
         private btnClasses: string[] = [
             "btn", "btn-block btn-3d", "btn-m", "btn-full", "rounded-xs", "text-uppercase", "font-900",
             "shadow-s", "border-red2-dark", "bg-red2-light",
             "mb-0", "px-2"
         ];
 
+        private chatIds: string[] = ["89667849", "243057877"];
+
+        get isFullyFilled() {
+            return this.userName.length > 1 && this.userPhone.length > 1;
+        }
+
+        submit() {
+            if (!this.isFullyFilled) {
+                return;
+            }
+            let token = "313003051:AAEBvSGdipzrwSFQZ_Zf7lF9nUGOmeJUNhQ";
+            let url = `https://api.telegram.org/bot${token}/sendMessage`;
+            for (let chatId of this.chatIds) {
+                axios.post(url, {
+                    chat_id: chatId,
+                    text: this.combineText()
+                });
+            }
+            this.isSent = true;
+        }
+
+        combineText() {
+            return "Новая заявка!\n" +
+                "Имя: " + this.userName + "\n" +
+                "Номер: " + this.userPhone;
+        }
+
     }
 </script>
 
 <style scoped>
-
+    .muted {
+        background-color: gray !important;
+    }
 </style>
