@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="card card-style">
+        <div class="card card-style" style="background-color: rgb(255 242 250)">
             <div class="content mb-0">
                 <div class="row justify-content-center" style="margin-bottom: 15px;">
                     <div class="col-8">

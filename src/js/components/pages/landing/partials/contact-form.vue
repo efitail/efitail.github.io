@@ -12,41 +12,29 @@
                 </div>
             </template>
             <template v-else>
-                <div class="card card-style mb-0" style="margin-left: 30px; margin-right: 30px;">
-                    <div class="content">
-                        <h2>Запись </h2>
-                        <p class="mb-5">
-                            This contains basic profile fields, easily editable, set to disable or pre-populate with
-                            useful
-                            information.
-                        </p>
-                        <div class="input-style input-style-2 has-icon input-required">
-                            <i class="input-icon fa fa-user"></i>
-                            <span class="color-highlight input-style-1-active">Name</span>
-                            <em>(required)</em>
-                            <input type="name" class="form-control" value="Jackson Doe">
+                <div class="col-12">
+                    <div class="card card-style mb-0">
+                        <div class="content">
+                            <h2>{{ buttonText }}</h2>
+                            <p class="mb-3">
+                                Оставьте свои контактные данные и мы Вам перезвоним.
+                            </p>
+                            <div class="input-style input-style-2 has-icon input-required">
+                                <i class="input-icon fa fa-user"></i>
+                                <span class="color-highlight input-style-1-active">Имя</span>
+                                <input type="name" class="form-control" value="" placeholder="Наталья">
+                            </div>
+                            <div class="input-style input-style-2 has-icon input-required mt-4">
+                                <i class="input-icon fa fa-phone"></i>
+                                <span class="color-highlight input-style-1-active">Номер телефона</span>
+                                <input type="phone" class="form-control" value=""
+                                       placeholder="+7 987 654 32 10">
+                            </div>
+                            <a href="page-account.html#"
+                               class="btn btn-full bg-green1-dark btn-m text-uppercase rounded-sm shadow-l mb-3 mt-4 font-900">
+                                Отправить
+                            </a>
                         </div>
-                        <div class="input-style input-style-2 has-icon input-required mt-4">
-                            <i class="input-icon fa fa-at"></i>
-                            <span class="color-highlight input-style-1-active">Email Address</span>
-                            <em>(required)</em>
-                            <input type="email" class="form-control" value="jack.doe@domain.com">
-                        </div>
-                        <div class="input-style input-style-2 has-icon input-required mt-4">
-                            <i class="input-icon fa fa-map-marker"></i>
-                            <span class="color-highlight input-style-1-active">Location</span>
-                            <em>(required)</em>
-                            <input type="text" class="form-control" value="Melbourne, Australia">
-                        </div>
-                        <div class="input-style input-style-2 has-icon input-required mt-4">
-                            <i class="input-icon fa fa-phone"></i>
-                            <span class="color-highlight input-style-1-active">Phone Number</span>
-                            <em>(required)</em>
-                            <input type="phone" class="form-control" value="+1 234 5678 9134">
-                        </div>
-                        <a href="page-account.html#"
-                           class="btn btn-full bg-green1-dark btn-m text-uppercase rounded-sm shadow-l mb-3 mt-4 font-900">Save
-                            Basic Information</a>
                     </div>
                 </div>
             </template>
@@ -63,6 +51,9 @@
         components: {}
     })
     export default class ContactFormComponent extends Vue {
+
+        @Prop()
+        private botToken: string = "313003051:AAEBvSGdipzrwSFQZ_Zf7lF9nUGOmeJUNhQ";
 
         @Prop()
         private buttonText!: string;
