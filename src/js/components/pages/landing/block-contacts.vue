@@ -2,14 +2,14 @@
     <div>
         <div class="card card-style">
             <div class="content text-center mb-n2">
-                <img src="resources/images/face.png" class="img-fluid rounded-circle mb-n3 d-block mx-auto"
-                     style="width: 256px;">
+                <img src="resources/images/face.jpg" class="img-fluid rounded-circle mb-n3 d-block mx-auto"
+                     style="width: 256px; height: 256px;">
                 <p class="mb-n3 font-11 badge bg-color-main text-uppercase text-white">
                     Парикмахер-колорист
                 </p>
                 <h1 class="pt-2 mb-n1 font-26">Печковская-Цикорина Даша</h1>
                 <p class="mt-3">
-                    Всем привет! Меня съел медвед! Меня нигде нет! А еще я хороший товаровед! Семь бед – один ответ!
+                    Приветствую Вас на моем сайте! Для получения детальной консультации свяжитесь со мной ❤️
                 </p>
                 <div class="text-center mb-4">
                     <a href="https://api.whatsapp.com/send?phone=+79657615761"

@@ -18,7 +18,7 @@
                             <div class="content">
                                 <h2>{{ buttonText }}</h2>
                                 <p class="mb-3">
-                                    Оставьте свои контактные данные и мы Вам перезвоним.
+                                    Оставьте свои контактные данные и я Вам обязательно перезвоню.
                                 </p>
                                 <div class="input-style input-style-2 has-icon input-required">
                                     <i class="input-icon fa fa-user"></i>
