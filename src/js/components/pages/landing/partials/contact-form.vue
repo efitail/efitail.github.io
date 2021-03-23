@@ -18,7 +18,7 @@
                             <div class="content">
                                 <h2>{{ buttonText }}</h2>
                                 <p class="mb-3">
-                                    Оставьте свои контактные данные и мы Вам перезвоним.
+                                    Оставьте свои контактные данные и я Вам обязательно перезвоню.
                                 </p>
                                 <div class="input-style input-style-2 has-icon input-required">
                                     <i class="input-icon fa fa-user"></i>
@@ -32,10 +32,8 @@
                                     <input type="tel" class="form-control" v-model="userPhone"
                                            placeholder="">
                                 </div>
-                                <button type="button"
-                                        class="btn btn-full btn-block bg-green1-dark btn-m text-uppercase rounded-sm shadow-l mb-3 mt-4 font-900"
+                                <button type="button" :class="extraBtnClasses"
                                         :disabled="!isFullyFilled"
-                                        :class="{ 'muted': !isFullyFilled }"
                                         @click="submit">
                                     <i class="fa fa-paper-plane fa-fw mr-2"></i>
                                     Отправить
@@ -64,6 +62,7 @@
     import Component from "vue-class-component";
     import {Prop} from "vue-property-decorator";
     import axios from "axios";
+    import lodash from "lodash";
 
     @Component({
         components: {}
@@ -82,8 +81,8 @@
         isSent: boolean = false;
 
         private btnClasses: string[] = [
-            "btn", "btn-block btn-3d", "btn-m", "btn-full", "rounded-xs", "text-uppercase", "font-900",
-            "shadow-s", "border-red2-dark", "bg-red2-light",
+            "btn", "btn-block", "btn-3d", "btn-m", "btn-full", "rounded-xs", "text-uppercase", "font-900",
+            "shadow-s", "border-pink-dark", "bg-pink-light",
             "mb-0", "px-2"
         ];
 
@@ -91,6 +90,17 @@
 
         get isFullyFilled() {
             return this.userName.length > 1 && this.userPhone.length > 1;
+        }
+
+        get extraBtnClasses() {
+            let result = lodash.cloneDeep(this.btnClasses);
+            result.splice(result.indexOf("btn-3d"), 1);
+            if (!this.isFullyFilled) {
+                result.push("muted");
+            } else {
+                result.push("btn-3d");
+            }
+            return result;
         }
 
         submit() {
@@ -118,7 +128,18 @@
 </script>
 
 <style scoped>
-    .muted {
-        background-color: gray !important;
-    }
+.muted {
+    background-color: gray !important;
+    border-color: #5a4e56 !important;
+    cursor: not-allowed;
+}
+
+.border-pink-dark {
+    border-color: #c7659f;
+}
+
+.bg-pink-light {
+    background-color: #ff84cc;
+    color: #FFFFFF;
+}
 </style>

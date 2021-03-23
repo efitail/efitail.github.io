@@ -6,7 +6,7 @@
             <c-contact-form button-text="Получить бесплатную консультацию"/>
             <c-block-portfolio/>
             <c-block-contacts/>
-            <c-contact-form button-text="Оставить заявку, мы перезвоним"/>
+            <c-contact-form button-text="Оставьте заявку, я перезвоню Вам"/>
             <c-block-address/>
             <c-block-terms/>
         </div>
