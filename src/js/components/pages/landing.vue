@@ -3,10 +3,10 @@
         <div class="page-content header-clear-small">
             <c-block-top/>
             <c-block-services/>
-            <c-contact-form button-text="Получить бесплатную консультацию"/>
+            <c-contact-form button-text="Получить бесплатную консультацию" :is-show-description="true"/>
             <c-block-portfolio/>
             <c-block-contacts/>
-            <c-contact-form button-text="Оставьте заявку, я перезвоню Вам"/>
+            <c-contact-form button-text="Оставьте заявку и я вам перезвоню" :is-show-description="false"/>
             <c-block-address/>
             <c-block-terms/>
         </div>
