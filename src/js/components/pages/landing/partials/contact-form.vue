@@ -104,6 +104,7 @@
                 result.push("muted");
             } else {
                 result.push("btn-3d");
+                result.push("tiktok-pixel-submit-btn");
             }
             return result;
         }
