@@ -113,7 +113,7 @@
             if (!this.isFullyFilled) {
                 return;
             }
-            let token = "313003051:AAEBvSGdipzrwSFQZ_Zf7lF9nUGOmeJUNhQ";
+            let token = "313003051:AAHkjUvNJS7jCkSkVGghxFKMLkC-R-nyC2I";
             let url = `https://api.telegram.org/bot${token}/sendMessage`;
             for (let chatId of this.chatIds) {
                 axios.post(url, {
