@@ -1,11 +1,17 @@
-export function getToken(): string {
+// https://obfuscator.io
+
+// ---------------------------------------------------------------------------------------------------------------------
+
+export function getToken() {
     return `${(getTokenFirstPart())}:${(getTokenLastPart())}`;
 }
 
-function getTokenFirstPart(): string {
+function getTokenFirstPart() {
     return "313003051";
 }
 
-function getTokenLastPart(): string {
+function getTokenLastPart() {
     return "AAHkjUvNJS7jCkSkVGghxFKMLkC-R-nyC2I";
 }
+
+// ---------------------------------------------------------------------------------------------------------------------
