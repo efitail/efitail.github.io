@@ -65,6 +65,7 @@
     import {Prop} from "vue-property-decorator";
     import axios from "axios";
     import lodash from "lodash";
+    import {getToken} from "@/js/functions/telegram";
 
     @Component({
         components: {}
@@ -113,8 +114,7 @@
             if (!this.isFullyFilled) {
                 return;
             }
-            let token = "313003051:AAHkjUvNJS7jCkSkVGghxFKMLkC-R-nyC2I";
-            let url = `https://api.telegram.org/bot${token}/sendMessage`;
+            let url = `https://api.telegram.org/bot${(getToken())}/sendMessage`;
             for (let chatId of this.chatIds) {
                 axios.post(url, {
                     chat_id: chatId,
