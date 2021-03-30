@@ -13,29 +13,30 @@
                 </p>
                 <div class="text-center mb-4">
                     <a href="https://api.whatsapp.com/send?phone=+79657615761"
-                       class="icon icon-xs bg-whatsup rounded-m shadow-xl"
+                       class="icon icon-xs bg-whatsup rounded-m shadow-xl tiktok-pixel-contact-link"
                        style="background-color: rgb(77 199 90);">
                         <i class="fab fa-whatsapp color-white"></i>
                     </a>
                     <a href="viber://chat/?number=+79657615761"
-                       class="icon icon-xs rounded-m shadow-xl ml-2"
+                       class="icon icon-xs rounded-m shadow-xl ml-2 tiktok-pixel-contact-link"
                        style="background-color: #7b519d;">
                         <i class="fab fa-viber color-white"></i>
                     </a>
                     <a href="tel:+79657615761"
-                       class="icon icon-m mx-2 bg-phone rounded-m shadow-xl">
+                       class="icon icon-l mx-3 bg-phone rounded-m shadow-xl tiktok-pixel-contact-link">
                         <i class="fa fa-phone"></i>
                     </a>
                     <a href="https://t.me/efitail"
-                       class="icon icon-xs rounded-m shadow-xl mr-2"
+                       class="icon icon-xs rounded-m shadow-xl mr-2 tiktok-pixel-contact-link"
                        style="background-color: #34a4da;">
                         <i class="fab fa-telegram-plane color-white"></i>
                     </a>
                     <a href="http://instagram.com/_u/efitail"
-                       class="icon icon-xs bg-instagram rounded-m shadow-xl">
+                       class="icon icon-xs bg-instagram rounded-m shadow-xl tiktok-pixel-contact-link">
                         <i class="fab fa-instagram"></i>
                     </a>
-                    <a href="mailto:efitailvlg@gmail.com" class="pt-2 d-block color-theme opacity-30">
+                    <a href="mailto:efitailvlg@gmail.com"
+                       class="pt-2 d-block color-theme opacity-30 tiktok-pixel-contact-link">
                         efitailvlg@gmail.com
                     </a>
                 </div>

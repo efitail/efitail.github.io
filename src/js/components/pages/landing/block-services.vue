@@ -15,8 +15,6 @@
                     <div id="collapse1" class="collapse" data-parent="#accordion-1" style="">
                         <div class="pt-1 pb-2 pl-5 pr-3">
 
-                            <b>Консультация <u>бесплатна</u>!</b><br><br>
-
                             <b>Сложное окрашивание волос или осветление корней + тонирование:</b><br>
 
                             <i class="fas fa-caret-right"></i> Короткие (до плеч) 5000 – 6000р<br>
