@@ -1,17 +1,3 @@
-// https://obfuscator.io
-
-// ---------------------------------------------------------------------------------------------------------------------
-
 export function getToken() {
-    return `${(getTokenFirstPart())}:${(getTokenLastPart())}`;
+    return "313003051:AAHkjUvNJS7jCkSkVGghxFKMLkC-R-nyC2I";
 }
-
-function getTokenFirstPart() {
-    return "313003051";
-}
-
-function getTokenLastPart() {
-    return "AAHkjUvNJS7jCkSkVGghxFKMLkC-R-nyC2I";
-}
-
-// ---------------------------------------------------------------------------------------------------------------------

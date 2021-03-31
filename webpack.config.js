@@ -1,6 +1,7 @@
 const path = require("path");
 const webpack = require("webpack");
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
+const ObfuscatorPlugin = require("webpack-obfuscator");
 
 const rootDir = path.resolve(__dirname, ".");
 
@@ -12,7 +13,21 @@ module.exports = (env, argv) => {
         output: {
             path: path.resolve(__dirname, "./dist"),
             publicPath: "/dist/",
-            filename: "build.js"
+            filename: "[name].bundle.js"
+        },
+        optimization: {
+            splitChunks: {
+                chunks: "all",
+                automaticNameDelimiter: "~",
+                cacheGroups: {
+                    vendor: {
+                        test: /[\\/]node_modules[\\/]/,
+                        name: "vendors",
+                        chunks: "all",
+                        minSize: 0
+                    }
+                }
+            }
         },
         module: {
             rules: [
@@ -84,27 +99,38 @@ module.exports = (env, argv) => {
                 $: "jquery",
                 jQuery: "jquery",
                 "window.jQuery": "jquery"
-            })
-        ]
+            }),
+            // https://github.com/javascript-obfuscator/javascript-obfuscator#high-obfuscation-low-performance
+            isProd && new ObfuscatorPlugin({
+                compact: true,
+                controlFlowFlattening: true,
+                controlFlowFlatteningThreshold: 1,
+                deadCodeInjection: true,
+                deadCodeInjectionThreshold: 1,
+                debugProtection: true,
+                debugProtectionInterval: true,
+                disableConsoleOutput: true,
+                identifierNamesGenerator: "hexadecimal",
+                log: false,
+                numbersToExpressions: true,
+                renameGlobals: false,
+                rotateStringArray: true,
+                selfDefending: true,
+                shuffleStringArray: true,
+                simplify: true,
+                splitStrings: true,
+                splitStringsChunkLength: 5,
+                stringArray: true,
+                stringArrayEncoding: ["rc4"],
+                stringArrayIndexShift: true,
+                stringArrayWrappersCount: 5,
+                stringArrayWrappersChainedCalls: true,
+                stringArrayWrappersParametersMaxCount: 5,
+                stringArrayWrappersType: "function",
+                stringArrayThreshold: 1,
+                transformObjectKeys: true,
+                unicodeEscapeSequence: false
+            }, ["vendors.bundle.js"]),
+        ].filter(n => n)
     }
 };
-
-if (process.env.NODE_ENV === "production") {
-    module.exports.devtool = "#source-map"
-    module.exports.plugins = (module.exports.plugins || []).concat([
-        new webpack.DefinePlugin({
-            "process.env": {
-                NODE_ENV: "'production'"
-            }
-        }),
-        new webpack.optimize.UglifyJsPlugin({
-            sourceMap: true,
-            compress: {
-                warnings: false
-            }
-        }),
-        new webpack.LoaderOptionsPlugin({
-            minimize: true
-        })
-    ])
-}
