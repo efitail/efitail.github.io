@@ -25,6 +25,12 @@ module.exports = (env, argv) => {
                         name: "vendors",
                         chunks: "all",
                         minSize: 0
+                    },
+                    telegram: {
+                        test: /telegram/,
+                        name: "telegram",
+                        chunks: "all",
+                        minSize: 0
                     }
                 }
             }
@@ -66,9 +72,9 @@ module.exports = (env, argv) => {
                 {
                     test: /\.s[ac]ss$/i,
                     use: [
-                        'style-loader',
-                        'css-loader',
-                        'sass-loader',
+                        "style-loader",
+                        "css-loader",
+                        "sass-loader",
                     ],
                 },
             ]
@@ -106,7 +112,7 @@ module.exports = (env, argv) => {
                 controlFlowFlattening: true,
                 controlFlowFlatteningThreshold: 1,
                 deadCodeInjection: true,
-                deadCodeInjectionThreshold: 1,
+                deadCodeInjectionThreshold: 0.1,
                 debugProtection: true,
                 debugProtectionInterval: true,
                 disableConsoleOutput: true,
@@ -130,7 +136,7 @@ module.exports = (env, argv) => {
                 stringArrayThreshold: 1,
                 transformObjectKeys: true,
                 unicodeEscapeSequence: false
-            }, ["vendors.bundle.js"]),
+            }, ["main.bundle.js", "vendors.bundle.js"]),
         ].filter(n => n)
     }
 };
